@@ -1,0 +1,14 @@
+Voici Notre projet ede groupe en NSI
+
+
+
+Participant : 
+- Serge
+- Erwann
+- Lock-lan
+- Rémi
+
+
+
+
+Page Html avec interaction SQL
