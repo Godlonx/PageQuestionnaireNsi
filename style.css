@@ -3,9 +3,11 @@ body {
 }
 
 h1, p {
-    color: #8E9297;
+    color: #6d7783;
 }
 
-h2 {
+h2, a {
+    text-decoration: None;
     height: 15;
+    color: #8E9297;
 }
