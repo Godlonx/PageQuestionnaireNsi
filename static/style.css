@@ -90,3 +90,13 @@ body{
     height: 20%;
     text-align: center;
 }
+.question {
+    position: relative;
+    text-align: left;
+    left: 10em;
+}
+.question .reponses {
+    position: relative;
+    text-align: left;
+    left: 30px;
+}
