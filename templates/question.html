@@ -2,8 +2,27 @@
 {% block contenu %}
     <h2 class="title1"> Questionnaire {{nom}}</h2>
 
-    <h3>Question exemple :</h3>
-    <p><span STYLE="padding:0 0 0 50px;"></span><input type="checkbox" > Reponse 1 <span STYLE="padding:0 0 0 80px;"></span><input type="checkbox"> reponse 2 </p>
-    <p><span STYLE="padding:0 0 0 50px;"></span><input type="checkbox" value=on> Reponse 3 <span STYLE="padding:0 0 0 80px;"></span><input type="checkbox"> reponse 4 </p>
+    <div class="question">
+        <h3>Question exemple :</h3>
+            <p class="reponses">
+                
+                <input type="radio" id="rep1" name="repQ1" class="rep">
+                <label> une pomme</label> 
+                
+                <br>
 
+                <input type="radio" id="rep2" name="repQ1" class="rep">
+                <label> Une Cacauuuete</label>
+
+                <br>
+                
+                <input type="radio" id="rep3" name="repQ1" class="rep">
+                <label> Une kipa surgeler</label>
+                
+                <br>
+
+                <input type="radio" id="rep4" name="repQ1" class="rep">
+                <label> la reponse 4</label> 
+            </p>
+    </div>
 {% endblock contenu %}
