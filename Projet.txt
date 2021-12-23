@@ -1,14 +1,27 @@
-Voici Notre projet ede groupe en NSI
+Voici Notre projet de groupe en NSI
 
 
 
 Participant : 
 - Serge
 - Erwann
-- Lock-lan
+- Loch'lan
 - Rémi
 
 
 
 
 Page Html avec interaction SQL
+
+
+Questionnaire Film :
+    1   -
+    2   -
+    3   -
+    4   -
+    5   -
+    6   -
+    7   -
+    8   -
+    9   -
+    10  -
