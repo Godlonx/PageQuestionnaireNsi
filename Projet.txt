@@ -15,13 +15,26 @@ Page Html avec interaction SQL
 
 
 Questionnaire Film :
-    1   -
-    2   -
-    3   -
-    4   -
-    5   -
-    6   -
-    7   -
-    8   -
-    9   -
-    10  -
+    p1   - pulp fiction
+    p2   - shining
+    a3   - roi lion 
+    a4   - The mask
+    a5   - kung fu panda
+    p6   - "si j'aurais su j'aurais pas venu"                                            => Guerre des boutons
+    p7   - "C’est fin, c’est très fin, ça se mange sans faim."                           => Le père noël est une ordure
+    p8   - "Hasta la vista, baby"                                                        => Terminator 
+    p9   - "La vie c’est comme une boîte de chocolats, on ne sait jamais sur quoi on va tomber." => Forrest Gump 
+    p10  - "Oh si si, prenez un chewing-gum, Émile."                                     => La cité de la peur 
+    a11  - "Ketchaaa !"                                                                  => Cars 
+    a12  - Wallace et gromit
+    p13  - star wars
+    p14  - E.T.
+    p15  - "Je jure solennellement que mes intentions sont mauvaises"                    => Harry potter
+    a16  - chicken run
+    p17  - "Tu vois, le monde se divise en deux catégories, ceux qui ont un pistolet chargé et ceux qui creusent. Toi, tu creuses." => Le bon, la brute et le truand
+    p18  - "Ou tu sors, ou j'te sors, hein, mais faudra prendre une décision"            => Dikkenek
+    p19  - "La cuillère n'existe pas"                                                    => Matrix
+    20  - Jurassic Park
+
+
+
