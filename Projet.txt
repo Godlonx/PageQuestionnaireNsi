@@ -36,5 +36,28 @@ Questionnaire Film :
     p19  - "La cuillère n'existe pas"                                                    => Matrix
     20  - Jurassic Park
 
+Questionnaire Série :
+
+	1 	-Blacklist
+	2	-You
+	3 	-The office
+	4	-Mr.Robot
+	5	-Stranger Things
+	6	-Suits
+	7	-Grey's Anatomy
+	8	-Friends
+	9	-South Park
+	10	-Peaky blinders
+	11	-Gossip girl
+	12	-Lost
+	13	-Doctor Who
+	14	-How I met your mother
+	15	-Desperate Housewives
+	16	-Breaking Bad
+	17	-The 100
+	18	-Squid Game
+	19	-The good place
+	20	-Le jeu de la dame
+
 
 
