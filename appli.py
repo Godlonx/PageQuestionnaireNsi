@@ -12,7 +12,7 @@ def question():
     return render_template('question.html', nom='Cacaobean')
 
 @application.route('/questionnaire')
-def qquestionnaire():
+def questionnaire():
     return render_template('questionnaires.html')
 
 if __name__ == '__main__':
