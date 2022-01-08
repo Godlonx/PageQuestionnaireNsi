@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request
+from sqlite3 import *
+from random import *
 
 # Creer l'application :
 application = Flask(__name__)
@@ -9,31 +11,23 @@ def index():
 
 @application.route('/question')
 def question():
-    return render_template('question.html', nom='Cacaobean')
+    val = ordre_random(1)
+    return render_template('question.html', nom='Cacao', rep11=val[0], rep12=val[1])
 
 @application.route('/questionnaire')
 def questionnaire():
     return render_template('questionnaires.html')
 
-if __name__ == '__main__':
-    application.run(debug=True)
 
-
-
-from sqlite3 import *
-from random import *
-
-
-def ordre_random(idq):
-    sqliteConnection = connect('siteweb.db')
+def ordre_random(idq: int):
+    sqliteConnection = connect('documents/siteweb.db')
     cursor = sqliteConnection.cursor()
     req = randompos()
-    val = cursor.execute(req[0],idq)
-
+    cursor.execute(req,str(idq))
+    val = cursor.fetchone()
     sqliteConnection.commit()
     cursor.close()
-
-    return (val, req[1])
+    return val
 
 
 def randompos():
@@ -45,4 +39,13 @@ def randompos():
     idb = randint(0,3)
     req = reqn[idb]
 
-    return (req, idb)
+    return (req)
+
+if __name__ == '__main__':
+    application.run(debug=True)
+
+
+
+
+
+
