@@ -10,46 +10,45 @@ h3 {color:green;}
 
 
 
-*{
+*{/*Paramètres de base*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-:root{
+:root{/*Pour créer la variable d'une couleur (Inutilisée pour l'instant)*/
     --clr: #222327;
 }
-body{
+body{/*Pour les parties paragraphe*/
     display: flex;
     min-height: 100vh;
     background: var(--clr);
 }
-.navigation
-{
+.navigation{/*Pour le menu du haut de page, idem pour tout les autres .navigation*/
     position: absolute;
     top: 10px;
     left: 50em;
     width: 200px;
     height: 70px;
-    background: #fff;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     
 }
-.navigation ul{
+.navigation ul{/*Paramètrage de la liste*/
     display: flex;
     width: 150px;
 }
-.navigation ul li{
+.navigation ul li{/*Sous-liste*/
     position: relative;
     list-style: none;
     width: 70px;
     height: 70px;
     z-index: 1;
 }
-.navigation ul li a{
+.navigation ul li a{/*Affichage des icônes et du texte*/
     position: relative;
     display: flex;
     justify-content: center;
@@ -59,7 +58,7 @@ body{
     text-align: center;
     font-size: 500;
 }
-.navigation ul li a .icon{
+.navigation ul li a .icon{/*Affichage des icônes en détails*/
     position: relative;
     display: block;
     top: -5px;
@@ -68,7 +67,7 @@ body{
     text-align: center;
     color: var(--clr);
 }
-.navigation ul li a .text{
+.navigation ul li a .text{/*Affichage du texte en détails*/
     position: absolute;
     display: block;
     color: var(--clr);
@@ -77,26 +76,42 @@ body{
     font-size: 0.75em;
     letter-spacing: 0.05em;
 }
-.blocks{
+.blocks{/*Paramètrage des blocks*/
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
     top: 120px;    
 }
-.blocks .connect {
+.blocks .connect {/*Paramètrage de la page default.html*/
     position: relative;
     width: 100%;
     height: 20%;
     text-align: center;
 }
-.question {
+.question {/*Classe générales des questions pour les différents Quizz*/
     position: relative;
     text-align: left;
     left: 10em;
 }
-.question .reponses {
+.question .reponses {/*Sous-classe réponse à la classe question*/
     position: relative;
     text-align: left;
-    left: 30px;
+    left: 10em;
+	height:15px;
+}
+.question .citation{/*Sous classe pour les questions imposant une citation*/
+	position:relative;
+	text-align:left;
+	left:10em;
+	color:#333333;
+}
+.question .blanc{/*Sous-classe utilisée pour paramètrer les blancs ("...") dans les citations*/
+	position:relative;
+	text-align:10em;
+	color:#5b5b5b
+}
+.image{/*Classe utilisée pour les images (Rebaissant automatiquement les dimensions de l'image si la hauteur dépasse 600px)*/
+	max-height: 600px;
+	width:auto;
 }
