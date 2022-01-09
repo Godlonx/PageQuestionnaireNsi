@@ -90,15 +90,13 @@ body{/*Pour les parties paragraphe*/
     text-align: center;
 }
 .question {/*Classe générales des questions pour les différents Quizz*/
-    position: relative;
-    text-align: left;
-    left: 10em;
+    position: relative;    
 }
 .question .reponses {/*Sous-classe réponse à la classe question*/
     position: relative;
-    text-align: left;
-    left: 10em;
-	height:15px;
+}
+.question .rep{
+    position: relative;
 }
 .question .citation{/*Sous classe pour les questions imposant une citation*/
 	position:relative;
