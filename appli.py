@@ -11,8 +11,8 @@ def index():
 
 @application.route('/question')
 def question():
-    val = ordre_random(1)
-    return render_template('question.html', nom='Cacao', rep11=val[0], rep12=val[1])
+    val1 = ordre_random(1)
+    return render_template('question.html', nom='Cacao', rep11=val1[0], rep12=val1[1])
 
 @application.route('/questionnaire')
 def questionnaire():

@@ -113,3 +113,6 @@ body{/*Pour les parties paragraphe*/
 	max-height: 600px;
 	width:auto;
 }
+.question .endbutton{
+    position: relative;
+}
