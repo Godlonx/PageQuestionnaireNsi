@@ -1,463 +1,464 @@
 {% extends 'index.html' %}
 {% block contenu %}
     <h2 class="title1"> Questionnaire {{nom}}</h2>
+    <form method="POST">
+        <div class="question">
+            <img src="{{ url_for('static', filename='Image_Questionnaire/Quizz_Film/1.jfif') }}"></imgsrc>
+                <p class="reponses">
+                    
+                    
+                    <input type="radio" id="rep1" name="repQ1" class="rep" value="1">
+                    <label> {{rep11}}</label>
+                    
+                    <br>
 
-    <div class="question">
-        <img src="{{ url_for('static', filename='Image_Questionnaire/Quizz_Film/1.jfif') }}"></imgsrc>
-            <p class="reponses">
-                
-                
-                <input type="radio" id="rep1" name="repQ1" class="rep">
-                <label> {{rep11}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ1" class="rep" value="2">
+                    <label> {{rep12}}</label>
 
-                <input type="radio" id="rep2" name="repQ1" class="rep">
-                <label> {{rep12}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ1" class="rep" value="3">
+                    <label> {{rep13}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ1" class="rep">
-                <label> {{rep13}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ1" class="rep" value="4">
+                    <label> {{rep14}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 2 :</h3>
+                <p class="reponses"> 
+                    <input type="radio" id="rep1" name="repQ2" class="rep" value="1">
+                    <label> {{rep21}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ1" class="rep">
-                <label> {{rep14}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 2 :</h3>
-            <p class="reponses"> 
-                <input type="radio" id="rep1" name="repQ2" class="rep">
-                <label> {{rep21}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ2" class="rep" value="2">
+                    <label> {{rep22}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ2" class="rep" value="3">
+                    <label> {{rep23}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep2" name="repQ2" class="rep">
-                <label> {{rep22}}</label>
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ2" class="rep">
-                <label> {{rep23}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ2" class="rep" value="4">
+                    <label> {{rep24}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ3" class="rep" value="1">
+                    <label> {{rep31}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ2" class="rep">
-                <label> {{rep24}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ3" class="rep">
-                <label> {{rep31}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ3" class="rep" value="2">
+                    <label> {{rep32}}</label>
 
-                <input type="radio" id="rep2" name="repQ3" class="rep">
-                <label> {{rep32}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ3" class="rep" value="3">
+                    <label> {{rep33}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ3" class="rep">
-                <label> {{rep33}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ3" class="rep" value="4">
+                    <label> {{rep34}}</label> 
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>                
+                    <input type="radio" id="rep1" name="repQ4" class="rep" value="1">
+                    <label> {{rep41}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ3" class="rep">
-                <label> {{rep34}}</label> 
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>                
-                <input type="radio" id="rep1" name="repQ4" class="rep">
-                <label> {{rep41}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ4" class="rep" value="2">
+                    <label> {{rep42}}</label>
 
-                <input type="radio" id="rep2" name="repQ4" class="rep">
-                <label> {{rep42}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ4" class="rep" value="3">
+                    <label> {{rep43}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ4" class="rep">
-                <label> {{rep43}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ4" class="rep" value="4">
+                    <label> {{rep44}}</label>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ5" class="rep" value="1">
+                    <label> {{rep51}}</label> 
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ4" class="rep">
-                <label> {{rep44}}</label>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ5" class="rep">
-                <label> {{rep51}}</label> 
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ5" class="rep" value="2">
+                    <label> {{rep52}}</label>
 
-                <input type="radio" id="rep2" name="repQ5" class="rep">
-                <label> {{rep52}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ5" class="rep" value="3">
+                    <label> {{rep53}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ5" class="rep">
-                <label> {{rep53}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ5" class="rep" value="4">
+                    <label> {{rep54}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ6" class="rep" value="1">
+                    <label> {{rep61}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ5" class="rep">
-                <label> {{rep54}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ6" class="rep">
-                <label> {{rep61}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ6" class="rep" value="2">
+                    <label> {{rep62}}</label>
 
-                <input type="radio" id="rep2" name="repQ6" class="rep">
-                <label> {{rep62}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ6" class="rep" value="3">
+                    <label> {{rep63}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ6" class="rep">
-                <label> {{rep63}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ6" class="rep" value="4">
+                    <label> {{rep64}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ7" class="rep" value="1">
+                    <label> {{rep71}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ6" class="rep">
-                <label> {{rep64}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ7" class="rep">
-                <label> {{rep71}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ7" class="rep" value="2">
+                    <label> {{rep72}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ7" class="rep" value="3">
+                    <label> {{rep73}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep2" name="repQ7" class="rep">
-                <label> {{rep72}}</label>
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ7" class="rep">
-                <label> {{rep73}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ7" class="rep" value="4">
+                    <label> {{rep74}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ8" class="rep" value="1">
+                    <label> {{rep81}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ7" class="rep">
-                <label> {{rep74}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ8" class="rep">
-                <label> {{rep81}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ8" class="rep" value="2">
+                    <label> {{rep82}}</label>
 
-                <input type="radio" id="rep2" name="repQ8" class="rep">
-                <label> {{rep82}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ8" class="rep" value="3">
+                    <label> {{rep83}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ8" class="rep">
-                <label> {{rep83}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ8" class="rep" value="4">
+                    <label> {{rep84}}</label>
+                </p>
+        </div>
+        
+        <div class="question">
+            <h3>Question 14 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ9" class="rep" value="1">
+                    <label> {{rep91}}</label> 
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ8" class="rep">
-                <label> {{rep84}}</label>
-            </p>
-    </div>
-    
-    <div class="question">
-        <h3>Question 14 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ9" class="rep">
-                <label> {{rep91}}</label> 
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ9" class="rep" value="2">
+                    <label> {{rep92}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ9" class="rep" value="3">
+                    <label> {{rep93}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep2" name="repQ9" class="rep">
-                <label> {{rep92}}</label>
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ9" class="rep">
-                <label> {{rep93}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ9" class="rep" value="4">
+                    <label> {{rep94}}</label> 
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ10" class="rep" value="1">
+                    <label> {{rep101}}</label> 
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ9" class="rep">
-                <label> {{rep94}}</label> 
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ10" class="rep">
-                <label> {{rep101}}</label> 
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ10" class="rep" value="2">
+                    <label> {{rep102}}</label>
 
-                <input type="radio" id="rep2" name="repQ10" class="rep">
-                <label> {{rep102}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ10" class="rep" value="3">
+                    <label> {{rep103}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ10" class="rep">
-                <label> {{rep103}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ10" class="rep" value="4">
+                    <label> {{rep104}}</label> 
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ11" class="rep" value="1">
+                    <label> {{rep111}}</label> 
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ10" class="rep">
-                <label> {{rep104}}</label> 
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ11" class="rep">
-                <label> {{rep111}}</label> 
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ11" class="rep" value="2">
+                    <label> {{rep112}}</label>
 
-                <input type="radio" id="rep2" name="repQ11" class="rep">
-                <label> {{rep112}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ11" class="rep" value="3">
+                    <label> {{rep113}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ11" class="rep">
-                <label> {{rep113}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ11" class="rep" value="4">
+                    <label> {{rep114}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ12" class="rep" value="1">
+                    <label> {{rep121}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ11" class="rep">
-                <label> {{rep114}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ12" class="rep">
-                <label> {{rep121}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ12" class="rep" value="2">
+                <label> {{rep122}}</label>
 
-                <input type="radio" id="rep2" name="repQ12" class="rep">
-               <label> {{rep122}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ12" class="rep" value="3">
+                    <label> {{rep123}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ12" class="rep">
-                <label> {{rep123}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ12" class="rep" value="4">
+                    <label> {{rep124}}</label> 
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ13" class="rep" value="1">
+                    <label> {{rep131}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ12" class="rep">
-                <label> {{rep124}}</label> 
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ13" class="rep">
-                <label> {{rep131}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ13" class="rep" value="2">
+                    <label> {{rep132}}</label>
 
-                <input type="radio" id="rep2" name="repQ13" class="rep">
-                <label> {{rep132}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ13" class="rep" value="3">
+                    <label> {{rep133}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ13" class="rep">
-                <label> {{rep133}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ13" class="rep" value="4">
+                    <label> {{rep134}}</label> 
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ14" class="rep" value="1">
+                    <label> {{rep141}}</label> 
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ13" class="rep">
-                <label> {{rep134}}</label> 
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ14" class="rep">
-                <label> {{rep141}}</label> 
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ14" class="rep" value="2">
+                    <label> {{rep142}}</label>
 
-                <input type="radio" id="rep2" name="repQ14" class="rep">
-                <label> {{rep142}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ14" class="rep" value="3">
+                    <label> {{rep143}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ14" class="rep">
-                <label> {{rep143}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ14" class="rep" value="4">
+                    <label> {{rep144}}</label> 
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ15" class="rep" value="1">
+                    <label> {{rep151}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ14" class="rep">
-                <label> {{rep144}}</label> 
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ15" class="rep">
-                <label> {{rep151}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ15" class="rep" value="2">
+                    <label> {{rep152}}</label>
 
-                <input type="radio" id="rep2" name="repQ15" class="rep">
-                <label> {{rep152}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ15" class="rep" value="3">
+                    <label> {{rep153}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ15" class="rep">
-                <label> {{rep153}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ15" class="rep" value="4">
+                    <label> {{rep154}}</label> 
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ16" class="rep" value="1">
+                    <label> {{rep161}}</label> 
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ15" class="rep">
-                <label> {{rep154}}</label> 
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ16" class="rep">
-                <label> {{rep161}}</label> 
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ16" class="rep" value="2">
+                    <label> {{rep162}}</label>
 
-                <input type="radio" id="rep2" name="repQ16" class="rep">
-                <label> {{rep162}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ16" class="rep" value="3">
+                    <label> {{rep163}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ16" class="rep">
-                <label> {{rep163}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ16" class="rep" value="4">
+                    <label> {{rep164}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ17" class="rep" value="1">
+                    <label> {{rep171}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ16" class="rep">
-                <label> {{rep164}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ17" class="rep">
-                <label> {{rep171}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ17" class="rep" value="2">
+                    <label> {{rep172}}</label>
 
-                <input type="radio" id="rep2" name="repQ17" class="rep">
-                <label> {{rep172}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ17" class="rep" value="3">
+                    <label> {{rep173}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ17" class="rep">
-                <label> {{rep173}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ17" class="rep" value="4">
+                    <label> {{rep174}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ18" class="rep" value="1">
+                    <label> {{rep181}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ17" class="rep">
-                <label> {{rep174}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ18" class="rep">
-                <label> {{rep181}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ18" class="rep" value="2">
+                    <label> {{rep182}}</label>
 
-                <input type="radio" id="rep2" name="repQ18" class="rep">
-                <label> {{rep182}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ18" class="rep" value="3">
+                    <label> {{rep183}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ18" class="rep">
-                <label> {{rep183}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ18" class="rep" value="4">
+                    <label> {{rep184}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ19" class="rep" value="1">
+                    <label> {{rep191}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ18" class="rep">
-                <label> {{rep184}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ19" class="rep">
-                <label> {{rep191}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ19" class="rep" value="2">
+                    <label> {{rep192}}</label>
 
-                <input type="radio" id="rep2" name="repQ19" class="rep">
-                <label> {{rep192}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ19" class="rep" value="3">
+                    <label> {{rep193}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ19" class="rep">
-                <label> {{rep193}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ19" class="rep" value="4">
+                    <label> {{rep194}}</label>
+                </p>
+        </div>
+        <div class="question">
+            <h3>Question 1 :</h3>
+                <p class="reponses">
+                    
+                    <input type="radio" id="rep1" name="repQ20" class="rep" value="1">
+                    <label> {{rep201}}</label>
+                    
+                    <br>
 
-                <input type="radio" id="rep4" name="repQ19" class="rep">
-                <label> {{rep194}}</label>
-            </p>
-    </div>
-    <div class="question">
-        <h3>Question 1 :</h3>
-            <p class="reponses">
-                
-                <input type="radio" id="rep1" name="repQ20" class="rep">
-                <label> {{rep201}}</label>
-                
-                <br>
+                    <input type="radio" id="rep2" name="repQ20" class="rep" value="2">
+                    <label> {{rep202}}</label>
 
-                <input type="radio" id="rep2" name="repQ20" class="rep">
-                <label> {{rep202}}</label>
+                    <br>
+                    
+                    <input type="radio" id="rep3" name="repQ20" class="rep" value="3">
+                    <label> {{re203}}</label>
+                    
+                    <br>
 
-                <br>
-                
-                <input type="radio" id="rep3" name="repQ20" class="rep">
-                <label> {{re203}}</label>
-                
-                <br>
+                    <input type="radio" id="rep4" name="repQ20" class="rep" value="4">
+                    <label> {{rep204}}</label>
+                </p>
 
-                <input type="radio" id="rep4" name="repQ20" class="rep">
-                <label> {{rep204}}</label>
-            </p>
-
-    </div>
-    <br><br>
-    <button onclick="fin_timer()">Valider</button>
+        </div>
+        <br><br>
+        <input onclick="fin_timer()", type='submit'>
+    </form>
 {% endblock contenu %}
