@@ -102,6 +102,38 @@ def interact_bdd(request, val):
     sqliteConnection.commit()
     cursor.close()
 
+
+def recup_db(req):
+    sqliteConnection = connect('documents/siteweb.db')
+    cursor = sqliteConnection.cursor()
+    result = cursor.execute(req)
+    sqliteConnection.commit()
+    cursor.close()
+    return result
+
+
+def add_score(personne, theme, score, temps):
+    a = recup_db(f"""SELECT score, temps FROM Bilan Where personne = {personne} and theme = {theme}""")
+    if a == None or a[0] <= score:
+        if a == None or a[1] > temps:
+            val = (personne, theme, score, temps)
+            interact_bdd(f"""INSERT INTO Bilan VALUES (?,?,?,?);""", val)
+    else:
+        return 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
     application.run(debug=True)
 
