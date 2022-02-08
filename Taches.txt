@@ -1,0 +1,16 @@
+Trucs à faire:
+
+-Relier aux énoncés (Rémi)
+ >>>Créer la fonction pour relier puis l'appliquer
+-Leaderboard (Loch'lan)
+ >>>Faire le tri de chaque personne (D'abord par points, puis par tps, par ex: 19 points en 4h=mieux que 15 en 5min)
+ >>>Dans un tableau
+-Relecture/Changement de CSS (Erwann)
+ >>>Changer de Font
+ >>>Améliorer le centrage
+-Lien compteur/BDD (Serge)
+
+
+Moins sûr:
+-Fixer le pb d'utilisation d'une seule page?
+-Enregistrer pseudo (Fait?)

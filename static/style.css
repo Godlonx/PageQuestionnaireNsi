@@ -2,9 +2,9 @@ body {background-color: #36393F;}
 
 h1, p {color: #6d7783;}
 
-h2, a {text-decoration: None; height: 15; color: #8E9297;}
+h2, a {text-decoration: None; height: 15; color: #8E9297; text-decoration: underline;}
 
-h3 {color:#37915A;}
+h3 {color:#37915A;font-size: 21px;}
 
 .title1 {color: #84eaff;}
 
@@ -89,29 +89,10 @@ body{/*Pour les parties paragraphe*/
     text-align: center;
 }
 .question {/*Classe générales des questions pour les différents Quizz*/
-    position: relative;    
-}
-.question .reponses {/*Sous-classe réponse à la classe question*/
     position: relative;
+	font-size: 16px;
 }
-.question .rep{
-    position: relative;
-}
-.question .citation{/*Sous classe pour les questions imposant une citation*/
-	position:relative;
-	text-align:left;
-	left:10em;
-	color:#333333;
-}
-.question .blanc{/*Sous-classe utilisée pour paramètrer les blancs ("...") dans les citations*/
-	position:relative;
-	text-align:10em;
-	color:#5b5b5b
-}
-.image{/*Classe utilisée pour les images (Rebaissant automatiquement les dimensions de l'image si la hauteur dépasse 600px)*/
-	max-height: 600px;
-	width:auto;
-}
+
 .question .endbutton{
     position: relative;
 }
