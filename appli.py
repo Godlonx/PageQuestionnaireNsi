@@ -124,9 +124,10 @@ def recup_db(req):
     sqliteConnection = connect('documents/siteweb.db')
     cursor = sqliteConnection.cursor()
     result = cursor.execute(req)
+    val = cursor.fetchone()
     sqliteConnection.commit()
     cursor.close()
-    return result
+    return val
 
 
 def add_score(personne, theme, score, temps):
@@ -134,12 +135,19 @@ def add_score(personne, theme, score, temps):
     if a == None or a[0] <= score:
         if a == None or a[1] > temps:
             val = (personne, theme, score, temps)
+            recup_db(f"""DELETE FROM Bilan WHERE personne = {personne};""")
             interact_bdd(f"""INSERT INTO Bilan VALUES (?,?,?,?);""", val)
     else:
         return 1
 
 
 
+def leaderboard(theme,cb=5):
+    top = []
+    for i in range(cb):
+        next = recup_db(f"""SELECT * FROM (SELECT * FROM Bilan WHERE theme = {theme} ORDER BY temps ASC) ORDER BY score DESC LIMIT {i},1""")
+        top.append(next)
+    return top
 
 
 
