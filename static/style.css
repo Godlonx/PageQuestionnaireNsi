@@ -1,10 +1,10 @@
 body {background-color: #36393F;}
 
-h1, p {color: #6d7783;}
+h1, p {color: #6d7783;font-family:'Tahoma';}
 
-h2, a {text-decoration: None; height: 15; color: #8E9297; text-decoration: underline;}
+h2, a {text-decoration: None; height: 15; color: #8E9297; text-decoration: underline; font-family: 'Verdana';}
 
-h3 {color:#37915A;font-size: 21px;}
+h3 {color:#37915A;font-size: 21px; font-family:'Tahoma';}
 
 .title1 {color: #84eaff;}
 
@@ -91,6 +91,7 @@ body{/*Pour les parties paragraphe*/
 .question {/*Classe générales des questions pour les différents Quizz*/
     position: relative;
 	font-size: 16px;
+	font-family:'Tahoma';
 }
 
 .question .endbutton{
