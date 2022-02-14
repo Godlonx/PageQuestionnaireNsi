@@ -8,22 +8,17 @@ const list = document.querySelectorAll('.list');
         item.addEventListener('click', activeLink))
 
 
-let time;
-let fin;
-let temps;
-let min;
-let sec;
-let msec;
+let time_deb; /* Temps au début du questionnaire (en ms)*/
+let time_fin; /* Durée totale du questionnaire (en ms)*/
+
 
 function debut_timer(){
-    time = Date.now();
+    time_deb = Date.now();
 }
 
-function fin_timer(){
-    min = String(~~((~~((Date.now() - time)/1000))/60))
-    sec = String(~~((Date.now() - time)/1000)%60)
-    msec = String((Date.now() - time)%1000)
-    fin = min+","+sec+","+msec
 
-    console.log(fin)
+
+function fin_timer(){
+    time_fin = Date.now() - time_deb
+    document.getElementById("test").setAttribute("value",time_fin);
 }

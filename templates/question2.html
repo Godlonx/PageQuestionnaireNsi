@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 {% block contenu %}
     <h2 class="title1"> Questionnaire Série</h2>
-    <form method="POST">
+    <form method="POST" onsubmit="fin_timer()">
         <div class="question">
             <h3>{{que1}}</h3>
             <img src="{{ url_for('static', filename='Image_questionnaire/21.png') }}">   
@@ -481,7 +481,9 @@
                 </p>
 
         </div>
-        <br><br>
-        <input onclick="fin_timer()", type='submit'>
+        <br>
+        <br>
+        <input type="hidden" id="test" name="testval" value="None">
+        <input type='submit'>
     </form>
 {% endblock contenu %}
