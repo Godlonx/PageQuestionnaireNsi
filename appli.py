@@ -162,7 +162,7 @@ def leaderboard(theme,cb=5): #personne, theme, score, temps
         else:
             ms = reste
             reste = 0
-        top[j] = (top[j][0],top[j][1],top[j][2], "Min: " + str(minu) + ", S: " + str(s) + ", Ms: " +str(ms) )
+        top[j] = (top[j][0],top[j][1],top[j][2], str(minu) + "min, " + str(s) + "s, " + str(ms) + "ms" )
     return top
 
 
