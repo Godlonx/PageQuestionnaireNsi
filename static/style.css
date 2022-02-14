@@ -97,5 +97,12 @@ body{/*Pour les parties paragraphe*/
 .question .endbutton{
     position: relative;}
 
-table.tableau{
-position: center; color: #c1deff; border: 1px solid #ffffff; border-collapse: collapse;}
+.tableau{
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    text-align: left;
+    color: #c1deff;
+    border: 1px solid #ffffff; 
+    border-collapse: collapse;
+}
