@@ -20,5 +20,6 @@ function debut_timer(){
 
 function fin_timer(){
     time_fin = Date.now() - time_deb
-    document.getElementById("test").setAttribute("value",time_fin);
+    console.log(time_fin)
+    document.getElementById("temps").innerHTML = time_fin;
 }

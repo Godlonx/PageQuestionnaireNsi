@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 {% block contenu %}
     <h2 class="title1"> Questionnaire Film</h2>
-    <form method="POST" onsubmit="fin_timer()">
+    <form method="POST" onsubmit="fin_timer()" >
         <div class="question">
 			<h3>{{que1}}</h3>
             <img src="{{ url_for('static', filename='Image_questionnaire/1.png') }}">
@@ -192,7 +192,6 @@
                     <label> {{rep84}}</label>
                 </p>
         </div>
-        
         <div class="question">
             <h3>{{que9}}</h3>
 			<img src="{{ url_for('static', filename='Image_questionnaire/9.png') }}">
@@ -483,7 +482,7 @@
         </div>
         <br>
         <br>
-        <input type="hidden" id="test" name="testval" value="None">
+
         <input type='submit'>
     </form>
 {% endblock contenu %}

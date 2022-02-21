@@ -23,64 +23,13 @@ body{/*Pour les parties paragraphe*/
     min-height: 100vh;
     background: var(--clr);
 }
-.navigation{/*Pour le menu du haut de page, idem pour tout les autres .navigation*/
-    position: absolute;
-    top: 10px;
-    left: 50em;
-    width: 200px;
-    height: 70px;
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    
-}
-.navigation ul{/*Paramètrage de la liste*/
-    display: flex;
-    width: 150px;
-}
-.navigation ul li{/*Sous-liste*/
-    position: relative;
-    list-style: none;
-    width: 70px;
-    height: 70px;
-    z-index: 1;
-}
-.navigation ul li a{/*Affichage des icônes et du texte*/
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    font-size: 500;
-}
-.navigation ul li a .icon{/*Affichage des icônes en détails*/
-    position: relative;
-    display: block;
-    top: -5px;
-    line-height: 75px;
-    font-size: 1.5em;
-    text-align: center;
-    color: var(--clr);
-}
-.navigation ul li a .text{/*Affichage du texte en détails*/
-    position: absolute;
-    display: block;
-    color: var(--clr);
-    bottom: 10px;
-    font-weight: 400;
-    font-size: 0.75em;
-    letter-spacing: 0.05em;
-}
+
 .blocks{/*Paramètrage des blocks*/
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
-    top: 120px;    
+    top: 120px;
 }
 .blocks .connect {/*Paramètrage de la page default.html*/
     position: relative;
@@ -92,6 +41,15 @@ body{/*Pour les parties paragraphe*/
     position: relative;
 	font-size: 16px;
 	font-family:'Tahoma';
+}
+
+.question .img{
+    margin-left: auto;
+}
+
+.question .rep{
+    position: relative;
+    margin-left: 20px;
 }
 
 .question .endbutton{
