@@ -2,13 +2,10 @@
 {% block contenu %}
 <form class="info_fin" method="POST">
     <h4>{{pseudo}}</h4>
-    <p>Pour le questionnaire </p>
-    <p>Votre Temps: </p>
-    
-    <p id="temps" class="temps">10</p>
-    <p>Le nombre de bonnes réponse: </p>
-    <p class="score">{{score}}</p>
+    <p>Pour le questionnaire </p>    
+    <input type="hidden" id="temps">
+    <p class="score">Votre score : {{score}}</p>
 
-    <button type='submit' form="info_fin">
+    <button type='submit' form="info_fin" >Valider</button>
 </form>
 {% endblock contenu %}

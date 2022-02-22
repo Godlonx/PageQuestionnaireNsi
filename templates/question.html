@@ -4,28 +4,29 @@
     <form method="POST">
         {%for i in range(20)%}
         <div class="question">
+            <h3>{{reponse[i][2][0]}}</h3>
             <img src="{{ url_for('static', filename=reponse[i][1]) }}" class="img"></imgsrc>
                 <p class="reponses">
-                    <input type="radio" id="rep1" name=i class="rep" value="1">
+                    <input type="radio" id="rep1" name={{reponse[i][3]}} value="1">
                     <label >{{reponse[i][0][0]}}</label>
 
                     <br>
 
-                    <input type="radio" id="rep2" name=i class="rep" value="2">
+                    <input type="radio" id="rep2" name={{reponse[i][3]}} value="2">
                     <label>{{reponse[i][0][1]}}</label>
 
                     <br>
 
-                    <input type="radio" id="rep3" name=i class="rep" value="3">
+                    <input type="radio" id="rep3"  name={{reponse[i][3]}} value="3">
                     <label>{{reponse[i][0][2]}}</label>
 
                     <br>
 
-                    <input type="radio" id="rep4" name=i class="rep" value="4">
+                    <input type="radio" id="rep4" name={{reponse[i][3]}} value="4">
                     <label>{{reponse[i][0][3]}}</label>
                 </p>
         </div>
         {%endfor%}
-        <input onclick="fin_timer()", type='submit'>
+        <input onclick="fin_timer()", type='submit', href="/fin">
     </form>
 {% endblock contenu %}

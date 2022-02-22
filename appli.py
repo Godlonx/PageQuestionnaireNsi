@@ -17,43 +17,70 @@ def index():
 def recup_name():
     text = request.form['text']
     pseudo = text.upper()
+    info_personne["pseudo"] = pseudo
     interact_bdd("""INSERT INTO Personne(pseudo) VALUES(?)""", pseudo)
     return questionnaire()
 
 @application.route('/question1')
 def question1():
     info_personne["theme"] = "Film"
+    info_personne["id_theme"] = 1
     return question(1)
 
 @application.route('/question2')
 def question2():
     info_personne["theme"] = "Série"
+    info_personne["id_theme"] = 2
     return question(2)
 
 @application.route('/question3')
 def question3():
     info_personne["theme"] = "Géographie"
+    info_personne["id_theme"] = 3
     return question(3)
 
 @application.route('/question')
 def question(id):
-    vals = [(ordre_random(1+i+20*(id-1)),f'Image_Questionnaire/{1+i+20*(id-1)}.png') for i in range(21)]
+    vals = [(ordre_random(1+i+20*(id-1)),f'Image_Questionnaire/{1+i+20*(id-1)}.png', recup_db(f"SELECT enonce FROM question Where id ={1+i+20*(id-1)}"), i+1) for i in range(21)]
     return render_template('question.html', nom=info_personne["theme"], reponse=vals)
 
 @application.route('/questionnaire')
 def questionnaire():
     return render_template('questionnaires.html')
 
-@application.route('/question', methods=['POST'])
-def check_rep():
-
+@application.route('/question1', methods=['POST'])
+def check_rep1():
     valide = 0
     for i in range(0, 20):
-        rep = request.form[f'repQ{i+1}']
+        rep = request.form[f'{i+1}']
         if rep == str(id_vrep[i]):
             valide += 1
 
-    return questionnaire()
+    return fin()
+
+@application.route('/question2', methods=['POST'])
+def check_rep2():
+    valide = 0
+    for i in range(0, 20):
+        rep = request.form[f'{i+1}']
+        if rep == str(id_vrep[i]):
+            valide += 1
+
+    return fin()
+@application.route('/question3', methods=['POST'])
+def check_rep3():
+    valide = 0
+    for i in range(0, 20):
+        rep = request.form[f'{i+1}']
+        if rep == str(id_vrep[i]):
+            valide += 1
+
+    return fin()
+
+@application.route('/fin', methods=['POST'])
+def fin():
+    return render_template('fin.html', pseudo=info_personne["pseudo"])
+
 
 @application.route('/test')
 def test():
@@ -83,7 +110,6 @@ def randompos():
 def interact_bdd(request, val):
     sqliteConnection = connect('documents/siteweb.db')
     cursor = sqliteConnection.cursor()
-    cursor.execute(request,(val,))
     sqliteConnection.commit()
     cursor.close()
 
@@ -91,9 +117,10 @@ def recup_db(req):
     sqliteConnection = connect('documents/siteweb.db')
     cursor = sqliteConnection.cursor()
     result = cursor.execute(req)
+    val = cursor.fetchone()
     sqliteConnection.commit()
     cursor.close()
-    return result
+    return val
 
 def add_score(personne, theme, score, temps):
     a = recup_db(f"""SELECT score, temps FROM Bilan Where personne = {personne} and theme = {theme}""")
@@ -105,8 +132,10 @@ def add_score(personne, theme, score, temps):
         return 1
 
 
+
 if __name__ == '__main__':
     application.run(debug=True)
+
 
 
 
