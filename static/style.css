@@ -43,19 +43,19 @@ body{/*Pour les parties paragraphe*/
 	font-family:'Tahoma';
 }
 
-.question .img{
+.question .img{ /*Sous-Classe de la classe question, permettant de recentrer les images.*/
     margin-left: auto;
 }
 
-.question .rep{
+.question .rep{ /*Sous-Classe de la classe question, permettant de paramétrer les réponses.*/
     position: relative;
     margin-left: 20px;
 }
 
-.question .endbutton{
+.question .endbutton{/*Sous-Classe de la classe question, permettant de mettre au centre de la page le bouton de renvoi de formulaire des questionnaires.*/
     position: relative;}
 
-.tableau{
+.tableau{ /*Classe tableau permettant d'appliquer les effets de style et de le centrer.*/
     margin-right: auto;
     margin-left: auto;
     position: relative;
