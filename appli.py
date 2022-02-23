@@ -127,9 +127,37 @@ def add_score(personne, theme, score, temps):
     if a == None or a[0] <= score:
         if a == None or a[1] > temps:
             val = (personne, theme, score, temps)
+            recup_db(f"""DELETE FROM Bilan WHERE personne = {personne};""")
             interact_bdd(f"""INSERT INTO Bilan VALUES (?,?,?,?);""", val)
     else:
         return 1
+
+
+def leaderboard(theme,cb=5): #personne, theme, score, temps
+    top = []
+    for i in range(cb):
+        next = recup_db(f"""SELECT * FROM (SELECT * FROM Bilan WHERE theme = {theme} ORDER BY temps ASC) ORDER BY score DESC LIMIT {i},1""")
+        top.append(next)
+    for j in range(len(top)):
+        reste = top[j][3]
+        minu = 0
+        s = 0
+        ms = 0
+        while reste > 0:
+            if reste > 60000:
+                reste = reste - 60000
+                minu = minu + 1
+            elif reste > 1000:
+                reste = reste - 1000
+                s = s + 1
+            else:
+                ms = reste
+                reste = 0
+        top[j] = (top[j][0],top[j][1],top[j][2], str(minu) + "min, " + str(s) + "s, " +str(ms) + "ms" )
+    return top
+
+
+
 
 
 
