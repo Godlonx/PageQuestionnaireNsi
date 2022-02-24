@@ -16,8 +16,6 @@ function debut_timer(){
     time_deb = Date.now();
 }
 
-
-
 function fin_timer(){
     time_fin = Date.now() - time_deb
     console.log(time_fin)
