@@ -20,8 +20,7 @@ def index():
 @application.route('/', methods=['POST'])
 def recup_name():
     text = request.form['text']
-    pseudo = text.upper()
-    info_personne["pseudo"] = text
+    info_personne["pseudo"] = str(text)
     add_personne(info_personne["pseudo"])
     return questionnaire()
 
@@ -141,7 +140,7 @@ def interact_bdd(request, val): # fonction pour modifier la base de donnée
 def recup_db(req): # fonction pour récuperer une information depuis la base de donnée
     sqliteConnection = connect('documents/siteweb.db')
     cursor = sqliteConnection.cursor()
-    result = cursor.execute(req)
+    cursor.execute(req)
     val = cursor.fetchall()
     sqliteConnection.commit()
     cursor.close()
@@ -160,8 +159,8 @@ def add_score(personne, theme, score, temps): #Ajoute les valeurs dans la base d
         return 1
     b = recup_db(f"""SELECT score, temps FROM Bilan WHERE personne={personne} and theme={theme}""")
     if (personne, theme) in a:
-        if b[0] <= score:
-            if b[0] < score or (b[0] == score and b[1] > temps):
+        if b[0][0] <= score:
+            if b[0][0] < score or (b[0][0] == score and b[1][0] > temps):
                 recup_db(f"""DELETE FROM Bilan WHERE personne = {personne};""")
                 interact_bdd("""INSERT INTO Bilan(personne,theme,score,temps) VALUES (?,?,?,?);""", val)
     else:
@@ -170,16 +169,14 @@ def add_score(personne, theme, score, temps): #Ajoute les valeurs dans la base d
 
 def add_personne(personne): #Ajoute un utilisateur dans la base de donnée
     present = False
-    a = recup_db("""SELECT pseudo FROM Personne """)
+    a = recup_db("""SELECT id, pseudo FROM Personne """)
     for i in a:
         if personne in i:
+            info_personne["id"] = i[0]
             present = True
-            break
     if present == False:
         info_personne["id"] = len(a)+1
         interact_bdd("""Insert into Personne(id, pseudo) Values(?, ?)""", (len(a)+1, personne))
-    else:
-        info_personne["id"] = recup_db(f"""SELECT id FROM Personne Where pseudo={personne}""")
 
 
 def leaderboard(theme): #Récuperer le tableau pour faire le leaderboard
