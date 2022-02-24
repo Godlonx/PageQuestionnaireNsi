@@ -4,7 +4,7 @@
     <form method="POST">
         {%for i in range(20)%}
         <div class="question">
-            <h3>{{reponse[i][2][0]}}</h3>
+            <h3>{{reponse[i][2][0][0]}}</h3>
             <img src="{{ url_for('static', filename=reponse[i][1]) }}" class="img"></imgsrc>
                 <p class="reponses">
                     <input type="radio" id="rep1" name={{reponse[i][3]}} value="1">
@@ -27,6 +27,7 @@
                 </p>
         </div>
         {%endfor%}
-        <input onclick="fin_timer()", type='submit', href="/fin">
+        <input type="hidden" name="temps" id="temps" value="">
+        <input onclick="fin_timer()" type='submit'>
     </form>
 {% endblock contenu %}

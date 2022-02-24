@@ -15,32 +15,13 @@
           </tr>
         </thead>
         <tbody>
+          {%for i in range(5)%}
           <tr>
-            <td> azert </td>
-            <td> 10 </td>
-            <td>  MM:SS:MSMS </td>
+            <td> {{val1[i][0]}} </td>
+            <td> {{val1[i][1]}} </td>
+            <td> {{val1[i][2]}} </td>
           </tr>
-          <tr>
-            <td> azetyui </td>
-            <td> 9 </td>
-            <td>  MM:SS:MSMS</td>
-          </tr>
-          <tr>
-            <td> azetyui </td>
-            <td> 9 </td>
-            <td>  MM:SS:MSMS</td>
-          </tr>
-          <tr>
-            <td> azetyui </td>
-            <td> 9 </td>
-            <td>  MM:SS:MSMS</td>
-          </tr>
-          <tr>
-            <td> azetyui </td>
-            <td> 9 </td>
-            <td>  MM:SS:MSMS</td>
-          </tr>
-        </tbody>
+          {%endfor%}
       </table>
     </div>
       <br>
@@ -52,31 +33,13 @@
           <th> Score </th>
           <th> Temps </th>
         </tr>
-        <tr>
-          <td> azert </td>
-          <td> 10 </td>
-          <td>  MM:SS:MSMS </td>
-        </tr>
-        <tr>
-          <td> azetyui </td>
-          <td> 9 </td>
-          <td>  MM:SS:MSMS</td>
-        </tr>
-        <tr>
-          <td> azetyui </td>
-          <td> 9 </td>
-          <td>  MM:SS:MSMS</td>
-        </tr>
-        <tr>
-          <td> azetyui </td>
-          <td> 9 </td>
-          <td>  MM:SS:MSMS</td>
-        </tr>
-        <tr>
-          <td> azetyui </td>
-          <td> 9 </td>
-          <td>  MM:SS:MSMS</td>
-        </tr>
+        {%for i in range(5)%}
+          <tr>
+            <td> {{val2[i][0]}} </td>
+            <td> {{val2[i][1]}} </td>
+            <td> {{val2[i][2]}} </td>
+          </tr>
+          {%endfor%}
       </table>
     <br>
     <br>
@@ -87,31 +50,13 @@
           <th> Score </th>
           <th> Temps </th>
         </tr>
-        <tr>
-          <td> azert </td>
-          <td> 10 </td>
-          <td>  MM:SS:MSMS </td>
-        </tr>
-        <tr>
-          <td> azetyui </td>
-          <td> 9 </td>
-          <td>  MM:SS:MSMS</td>
-        </tr>
-        <tr>
-          <td> azetyui </td>
-          <td> 9 </td>
-          <td>  MM:SS:MSMS</td>
-        </tr>
-        <tr>
-          <td> azetyui </td>
-          <td> 9 </td>
-          <td>  MM:SS:MSMS</td>
-        </tr>
-        <tr>
-          <td> azetyui </td>
-          <td> 9 </td>
-          <td>  MM:SS:MSMS</td>
-        </tr>
+        {%for i in range(5)%}
+          <tr>
+            <td> {{val3[i][0]}} </td>
+            <td> {{val3[i][1]}} </td>
+            <td> {{val3[i][2]}} </td>
+          </tr>
+          {%endfor%}
       </table>
       <br>
 {% endblock contenu %}

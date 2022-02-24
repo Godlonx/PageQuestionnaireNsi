@@ -5,7 +5,7 @@ from random import *
 
 # pseudo = nom de la personne qui fait le quizz, ce que l'on envoi a la BDD.
 id_vrep = []
-info_personne = {"pseudo":None, "theme":None, "score":None, "temps":None}
+info_personne = {"pseudo":None, "id":None, "theme":None, "id_theme":None, "score":None, "temps":None}
 # Creer l'application :
 application = Flask(__name__)
 
@@ -17,8 +17,8 @@ def index():
 def recup_name():
     text = request.form['text']
     pseudo = text.upper()
-    info_personne["pseudo"] = pseudo
-    interact_bdd("""INSERT INTO Personne(pseudo) VALUES(?)""", pseudo)
+    info_personne["pseudo"] = text
+    add_personne(info_personne["pseudo"])
     return questionnaire()
 
 @application.route('/question1')
@@ -46,45 +46,46 @@ def question(id):
 
 @application.route('/questionnaire')
 def questionnaire():
-    return render_template('questionnaires.html')
+    lead1 = leaderboard(1)
+    lead2 = leaderboard(2)
+    lead3 = leaderboard(3)
+    return render_template('questionnaires.html', val1=lead1, val2=lead2, val3=lead3)
 
 @application.route('/question1', methods=['POST'])
 def check_rep1():
     valide = 0
+    info_personne["temps"] = request.form['temps']
     for i in range(0, 20):
         rep = request.form[f'{i+1}']
         if rep == str(id_vrep[i]):
             valide += 1
-
-    return fin()
+    info_personne["score"] = valide
+    add_score(info_personne["id"], info_personne["id_theme"], info_personne["score"], info_personne["temps"])
+    return questionnaire()
 
 @application.route('/question2', methods=['POST'])
 def check_rep2():
     valide = 0
+    info_personne["temps"] = request.form['temps']
     for i in range(0, 20):
         rep = request.form[f'{i+1}']
         if rep == str(id_vrep[i]):
             valide += 1
+    info_personne["score"] = valide
+    add_score(info_personne["id"], info_personne["id_theme"], info_personne["score"], info_personne["temps"])
+    return questionnaire()
 
-    return fin()
 @application.route('/question3', methods=['POST'])
 def check_rep3():
     valide = 0
+    info_personne["temps"] = request.form['temps']
     for i in range(0, 20):
         rep = request.form[f'{i+1}']
         if rep == str(id_vrep[i]):
             valide += 1
-
-    return fin()
-
-@application.route('/fin', methods=['POST'])
-def fin():
-    return render_template('fin.html', pseudo=info_personne["pseudo"])
-
-
-@application.route('/test')
-def test():
-    return render_template('test.html', img_id=f'Image_Questionnaire/{randint(1,60)}.png')
+    info_personne["score"] = valide
+    add_score(info_personne["id"], info_personne["id_theme"], info_personne["score"], info_personne["temps"])
+    return questionnaire()
 
 def ordre_random(idq: int):
     sqliteConnection = connect('documents/siteweb.db')
@@ -103,13 +104,14 @@ def randompos():
     req4 = """SELECT fausse1, fausse2, fausse3, bonne FROM Question WHERE id = (?);"""
     reqn = [req1, req2, req3, req4]
     idb = randint(0,3)
-    id_vrep.append(idb)
+    id_vrep.append(idb+1)
     req = reqn[idb]
     return (req)
 
 def interact_bdd(request, val):
     sqliteConnection = connect('documents/siteweb.db')
     cursor = sqliteConnection.cursor()
+    cursor.execute(request, val)
     sqliteConnection.commit()
     cursor.close()
 
@@ -117,59 +119,58 @@ def recup_db(req):
     sqliteConnection = connect('documents/siteweb.db')
     cursor = sqliteConnection.cursor()
     result = cursor.execute(req)
-    val = cursor.fetchone()
+    val = cursor.fetchall()
     sqliteConnection.commit()
     cursor.close()
     return val
 
 def add_score(personne, theme, score, temps):
-    a = recup_db(f"""SELECT score, temps FROM Bilan Where personne = {personne} and theme = {theme}""")
-    if a == None or a[0] <= score:
-        if a == None or a[1] > temps:
-            val = (personne, theme, score, temps)
-            recup_db(f"""DELETE FROM Bilan WHERE personne = {personne};""")
-            interact_bdd(f"""INSERT INTO Bilan VALUES (?,?,?,?);""", val)
-    else:
+    a = recup_db("""SELECT personne, theme From Bilan""")
+    val = (personne, theme, score, temps)
+
+    if not(a):
+        interact_bdd("""INSERT INTO Bilan VALUES (?,?,?,?);""", val)
         return 1
 
+    b = interact_bdd("""SELECT score, temps FROM Bilan WHERE personne=(?) and theme=(?)""", (personne, theme))
 
-def leaderboard(theme,cb=5): #personne, theme, score, temps
-    top = []
-    for i in range(cb):
-        next = recup_db(f"""SELECT * FROM (SELECT * FROM Bilan WHERE theme = {theme} ORDER BY temps ASC) ORDER BY score DESC LIMIT {i},1""")
-        top.append(next)
-    for j in range(len(top)):
-        reste = top[j][3]
-        minu = 0
-        s = 0
-        ms = 0
-        while reste > 0:
-            if reste > 60000:
-                reste = reste - 60000
-                minu = minu + 1
-            elif reste > 1000:
-                reste = reste - 1000
-                s = s + 1
-            else:
-                ms = reste
-                reste = 0
-        top[j] = (top[j][0],top[j][1],top[j][2], str(minu) + "min, " + str(s) + "s, " +str(ms) + "ms" )
-    return top
+    if (personne, theme) in a:
+        if b[0] <= score:
+            if b[0] < score or (b[0] == score and b[1] > temps):
+                recup_db(f"""DELETE FROM Bilan WHERE personne = {personne};""")
+                interact_bdd("""INSERT INTO Bilan(personne,theme,score,temps) VALUES (?,?,?,?);""", val)
+
+    else:
+        interact_bdd("""INSERT INTO Bilan VALUES (?,?,?,?);""", val)
+    return 1
+
+def add_personne(personne):
+    present = False
+    a = recup_db("""SELECT pseudo FROM Personne """)
+    for i in a:
+        if personne in i:
+            present = True
+            break
+    if present == False:
+        info_personne["id"] = len(a)+1
+        interact_bdd("""Insert into Personne(id, pseudo) Values(?, ?)""", (len(a)+1, personne))
+    else:
+        info_personne["id"] = interact_bdd("""SELECT id FROM Personne Where pseudo=(?)""", (personne,))
 
 
-
-
+def leaderboard(theme): #personne, score, temps
+    cb = 5
+    info = []
+    suivant = recup_db(f"""SELECT P.pseudo, B.score, B.temps FROM Bilan as B inner Join Personne as P on P.id = B.personne WHERE theme = {theme} ORDER BY score DESC LIMIT 5""")
+    for j in range(5):
+        ms = suivant[j][2]
+        s = (ms // 1000)%60
+        m = (ms // 1000) // 60
+        ms %= 1000
+        temps = str(m) + "min, " + str(s) + "s, " +str(ms) + "ms"
+        info.append((suivant[j][0],str(suivant[j][1])+"/20", temps))
+    return info
 
 
 if __name__ == '__main__':
     application.run(debug=True)
-
-
-
-
-
-
-
-
-
-

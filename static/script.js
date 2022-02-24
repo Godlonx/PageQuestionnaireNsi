@@ -21,5 +21,5 @@ function debut_timer(){
 function fin_timer(){
     time_fin = Date.now() - time_deb
     console.log(time_fin)
-    document.getElementById("temps").innerHTML = time_fin;
+    document.getElementById("temps").value = time_fin;
 }
