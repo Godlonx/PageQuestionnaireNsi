@@ -50,13 +50,16 @@ def question3():
 
 @application.route('/question')
 def question(id):
-    vals = [(ordre_random(1+i+20*(id-1)),f'Image_Questionnaire/{1+i+20*(id-1)}.png', recup_db(f"SELECT enonce FROM question Where id ={1+i+20*(id-1)}"), i+1) for i in range(21)]
+    global id_vrep
+    id_vrep = []
+    vals = [(ordre_random(1+i+20*(id-1)),f'Image_Questionnaire/{1+i+20*(id-1)}.png', recup_db(f"SELECT enonce FROM question Where id ={1+i+20*(id-1)}"), i+1) for i in range(20)]
     return render_template('question.html', nom=info_personne["theme"], reponse=vals)
 
 ## Affiche la liste des questionnaires avec les leaderboards
 
 @application.route('/questionnaire')
 def questionnaire():
+    id_vrep = []
     lead1 = leaderboard(1)
     lead2 = leaderboard(2)
     lead3 = leaderboard(3)
@@ -70,7 +73,7 @@ def questionnaire():
 def check_rep1():
     valide = 0
     info_personne["temps"] = request.form['temps']
-    for i in range(0, 20):
+    for i in range(20):
         rep = request.form[f'{i+1}']
         if rep == str(id_vrep[i]):
             valide += 1
@@ -82,7 +85,7 @@ def check_rep1():
 @application.route('/question2', methods=['POST'])
 def check_rep2():
     valide = 0
-    info_personne["temps"] = request.form['temps']
+    info_personne["temps"] = request.form.get('temps')
     for i in range(0, 20):
         rep = request.form[f'{i+1}']
         if rep == str(id_vrep[i]):
@@ -155,17 +158,13 @@ def add_score(personne, theme, score, temps): #Ajoute les valeurs dans la base d
         if (personne, theme) == i:
             present = True
     if present == False:
-        interact_bdd("""INSERT INTO Bilan VALUES (?,?,?,?);""", val)
+        interact_bdd("""INSERT INTO Bilan(personne,theme,score,temps) VALUES (?,?,?,?);""", val)
         return 1
     b = recup_db(f"""SELECT score, temps FROM Bilan WHERE personne={personne} and theme={theme}""")
-    if (personne, theme) in a:
-        if b[0][0] <= score:
-            if b[0][0] < score or (b[0][0] == score and b[1][0] > temps):
-                recup_db(f"""DELETE FROM Bilan WHERE personne = {personne};""")
-                interact_bdd("""INSERT INTO Bilan(personne,theme,score,temps) VALUES (?,?,?,?);""", val)
-    else:
-        interact_bdd("""INSERT INTO Bilan VALUES (?,?,?,?);""", val)
-
+    if b[0][0] <= score:
+        if b[0][0] < score or (b[0][0] == score and b[1][0] > temps):
+            recup_db(f"""DELETE FROM Bilan WHERE personne = {personne};""")
+            interact_bdd("""INSERT INTO Bilan(personne,theme,score,temps) VALUES (?,?,?,?);""", val)
 
 def add_personne(personne): #Ajoute un utilisateur dans la base de donnée
     present = False
@@ -192,9 +191,7 @@ def leaderboard(theme): #Récuperer le tableau pour faire le leaderboard
         info.append((suivant[j][0],str(suivant[j][1])+"/20", temps))
     return info
 
-
-
-
-
 if __name__ == '__main__':
     application.run(debug=True)
+
+
