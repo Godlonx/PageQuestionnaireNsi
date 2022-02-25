@@ -72,7 +72,7 @@ def questionnaire():
 @application.route('/question1', methods=['POST'])
 def check_rep1():
     valide = 0
-    info_personne["temps"] = request.form['temps']
+    info_personne["temps"] = request.form.get('temps')
     for i in range(20):
         rep = request.form[f'{i+1}']
         if rep == str(id_vrep[i]):
@@ -98,7 +98,7 @@ def check_rep2():
 @application.route('/question3', methods=['POST'])
 def check_rep3():
     valide = 0
-    info_personne["temps"] = request.form['temps']
+    info_personne["temps"] = request.form.get('temps')
     for i in range(0, 20):
         rep = request.form[f'{i+1}']
         if rep == str(id_vrep[i]):
@@ -181,7 +181,7 @@ def add_personne(personne): #Ajoute un utilisateur dans la base de donnée
 def leaderboard(theme): #Récuperer le tableau pour faire le leaderboard
     cb = 5
     info = []
-    suivant = recup_db(f"""SELECT P.pseudo, B.score, B.temps FROM Bilan as B inner Join Personne as P on P.id = B.personne WHERE theme = {theme} ORDER BY score DESC LIMIT 5""")
+    suivant = recup_db(f"""SELECT P.pseudo, B.score, B.temps FROM Bilan as B inner Join Personne as P on P.id = B.personne WHERE theme = {theme} ORDER BY score DESC, temps ASC LIMIT 5""")
     for j in range(5):
         ms = suivant[j][2]
         s = (ms // 1000)%60
